@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --main-color: #00619d;
+    --rating-color: #ffc908;
+    --box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.product:hover{
+    /* border: 1px solid #00619d; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 var(--main-color) !important;
+}
+
+.text-main {
+    color: var(--main-color) !important;
+}
+
+.rating-color{
+    color: var(--rating-color) !important;
+} 
+    
+.bg-main {
+    background-color: var(--main-color) !important;
+}
+
+.product .btn {
+    transition: transform 1s, opacity 1s;
+    transform: translateY(100%);
+    opacity: 0;
+}
+.product:hover .btn{
+    transform: translateY(0%);
+    opacity: 1;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.bg-main-light {
+    background:#f8f9fa;
+}
+
+.border-main {
+    border: 1px solid var(--main-color) !important;
+}
+
+.text-white{
+    color: white;
+}
+
+button.bg-main:hover {
+    background-color: #2082be !important;
+}

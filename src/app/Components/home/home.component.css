@@ -1,0 +1,36 @@
+:root{
+    --main-color: #00619d;
+    --rating-color: #ffc908;
+    --box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.product:hover{
+    /* border: 1px solid #00619d; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 #00619d;
+}
+
+.text-main {
+    color: #00619d;
+}
+
+.rating-color{
+    color: #ffc908;
+} 
+    
+.bg-main {
+    background-color: #00619d;
+}
+
+.product .btn {
+    transition: transform 1s, opacity 1s;
+    transform: translateY(100%);
+    opacity: 0;
+}
+.product:hover .btn{
+    transform: translateY(0%);
+    opacity: 1;
+}
+a {
+    text-decoration: none;
+    color: black;
+}

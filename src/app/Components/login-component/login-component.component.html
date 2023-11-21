@@ -1,0 +1,29 @@
+<div class="w-75 mx-auto py-4">
+    <h4>Log In Now :</h4>
+
+    <div class="alert alert-danger" *ngIf="apiError">
+        <p class="m-0" >Email Or Password May be Incorrect</p>
+
+    </div>
+    <form (ngSubmit)="handelForm(logInForm)" [formGroup]="logInForm">
+        
+        <label for="email">Email</label>
+        <input formControlName="email" type="email" class="form-control mb-2" id="email" name="email">
+        <div class="alert alert-danger" *ngIf="logInForm.get('email')?.touched && logInForm.get('email')?.errors">
+            <p class="m-0" *ngIf="logInForm.get('email')?.getError('required')" >email Is Required</p>
+            <p class="m-0" *ngIf="logInForm.get('email')?.getError('email')">Enter Correct email</p>
+        </div>
+
+        <label for="password">Password</label>
+        <input formControlName="password" type="password" class="form-control mb-2" id="password" name="password">
+        <div class="alert alert-danger" *ngIf="logInForm.get('password')?.touched && logInForm.get('password')?.errors">
+            <p class="m-0" *ngIf="logInForm.get('password')?.getError('required')" >password Is Required</p>
+            <p class="m-0" *ngIf="logInForm.get('password')?.getError('pattern')">password Must start With UpperCase Then From 3 To 10 </p>
+        </div>
+
+        <button [disabled]="logInForm.status =='INVALID' " type="submit" class="btn btn-primary d-block ms-auto ">
+            <i *ngIf="isLoding" class="fa fa-spinner fa-spin"></i>
+            <span *ngIf="!isLoding">Log In</span>
+        </button>
+    </form>
+</div>

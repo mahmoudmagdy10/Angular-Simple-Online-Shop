@@ -1,0 +1,27 @@
+
+<app-main-slider></app-main-slider>
+<app-category-slider></app-category-slider>
+<div class="row p-4">
+    <hr>
+    <div>
+        <input class="form-control w-75 mx-auto py-4 text-center" type="text" [(ngModel)]="SearchInput" placeholder="Search For Product . . . ">
+    </div>
+    <div class="product col-md-2"  *ngFor="let product of ProductList|search:SearchInput">
+        <a [routerLink]="['/Productdetails',product._id]" >
+            <div class="px-2 py-2">
+                <img class="w-100" src="{{product.imageCover}}">
+                <span class="text-main fw-bold font-sm">{{product.category.name | uppercase}}</span>
+                <h3 class="h6 fw-bolder">{{product.title.split(' ').slice(0,2).join(' ')}}</h3>
+                <div class="d-flex align-items-center justify-content-between">
+                    <span class="text-muted fw-bold font-sm">{{product.price|currency}}</span>
+
+                    <div>
+                        <i class="rating-color fa fa-star"></i>
+                        <span class="text-muted fw-bold font-sm">{{product.ratingsAverage}}</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <button class="btn bg-main text-white w-100 my-3 " (click)="addCart(product._id)"> + Add </button>
+    </div>
+</div>

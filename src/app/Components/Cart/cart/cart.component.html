@@ -1,0 +1,37 @@
+<div class="bg-main-light p-4 my-4">
+    <h3>Shop Cart</h3>
+    <h6 class="text-main">Total Price : {{CartData?.totalCartPrice | currency:'EGP '}}</h6>
+
+    <div *ngFor="let product of CartData?.products" class="row py-3 align-items-center border-bottom">
+
+        <div class="col-md-1">
+            <img [src]="product?.product.imageCover" alt=""  height="100">
+        </div>
+        <div class="col-md-11 d-flex justify-content-between">
+            <div>
+                <h6>{{product?.product.title.split(' ').slice(0,9).join(' ')}}</h6>
+                <h6 class="text-main">Price : {{product?.price | currency:'EGP '}}</h6>    
+                <button class="btn" (click)="removeFromCart(product?.product._id)"><i class="fa fa-trash text-main">  Remove</i></button>
+            </div>
+            <div>
+                <button class="btn border-main"(click)="updateCartItem(product?.product._id, product?.count+1)">
+                    <i *ngIf="!isLoding" class="fa fa-plus"></i>
+                    <i *ngIf="isLoding" class="fa fa-spinner fa-spin"></i>
+
+                </button>
+                <span class="mx-2">{{product?.count}}</span>
+                <button class="btn border-main"  [disabled]="product?.count == 1 " (click)="updateCartItem(product?.product._id, product?.count-1)">
+                    <i *ngIf="!isLoding" class="fa fa-minus"></i>
+                    <i *ngIf="isLoding" class="fa fa-spinner fa-spin"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+        <button class="btn bg-main my-3" style="width: 22%;">
+            <a class="text-white fw-bold" [routerLink]="['/Checkout']" >
+                Online Payment  <img height="30" width="60" src="assets/visa.png" alt="">
+
+            </a>
+        </button>
+</div>

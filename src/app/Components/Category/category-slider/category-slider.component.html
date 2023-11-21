@@ -1,0 +1,14 @@
+<div class="row py-4 gx-0">
+    <div class="row py-4 gx-0">
+        <div class="">
+            <owl-carousel-o [options]="customOptions">
+                <ng-container *ngFor="let cat of CategoryList">
+                    <ng-template carouselSlide [id]="cat.id">
+                        <img height="200" [src]="cat.image" [alt]="cat.slug">
+                    </ng-template>
+                </ng-container>
+            </owl-carousel-o>            
+        </div>
+    </div>
+    
+</div>
